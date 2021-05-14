@@ -1,4 +1,6 @@
 /// <reference types="react" />
+export * from './hooks';
+export * from './components';
 declare const _default: {
     hooks: {
         useAutoNext: (isEnded: boolean, page: number) => void;
