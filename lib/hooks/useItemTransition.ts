@@ -1,11 +1,11 @@
-interface ItemStyle {
+export interface ItemStyle {
   width: number;
   height: number;
   offsetX: number;
   offsetY: number;
 }
 
-interface TransitionStyle {
+export interface TransitionStyle {
   transition: string;
 }
 

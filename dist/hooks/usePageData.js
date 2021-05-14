@@ -23,14 +23,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const dad_1 = require("@17media/dad");
-const api_1 = __importDefault(require("../services/api"));
 const useMergeLeaderboardData_1 = __importDefault(require("./useMergeLeaderboardData"));
 const useCountdown_1 = __importStar(require("./useCountdown"));
 const useAutoNext_1 = __importDefault(require("./useAutoNext"));
 const useMockLeaderboard_1 = __importDefault(require("./useMockLeaderboard"));
-const usePageData = ({ apiList, startDate, endDate, nextPage, isResultPage, endedText, eventoryAPI, }) => {
-    const { loading, leaderboardData = [] } = api_1.default(apiList, 'GET', 1000, eventoryAPI, []);
-    const [data, bonus, blackList] = leaderboardData;
+const usePageData = ({ apiList, startDate, endDate, nextPage, isResultPage, endedText, }) => {
+    const { data, bonus, blackList, } = apiList;
     const mergedLeaderboardData = useMergeLeaderboardData_1.default({
         data,
         bonus,
@@ -45,7 +43,6 @@ const usePageData = ({ apiList, startDate, endDate, nextPage, isResultPage, ende
     const leaderboard = enable ? mockLeaderboard : mergedLeaderboardData;
     return {
         leaderboard,
-        loading,
         text,
     };
 };

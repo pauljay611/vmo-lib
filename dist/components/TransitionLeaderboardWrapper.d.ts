@@ -1,12 +1,7 @@
 import React from 'react';
+import { ItemStyle } from '../hooks/useItemTransition';
 import { User } from '../types';
-interface ItemStyle {
-    width: number;
-    height: number;
-    offsetX: number;
-    offsetY: number;
-}
-interface Props {
+export interface Props {
     user: User[];
     rowCount: number;
     itemStyle: ItemStyle;

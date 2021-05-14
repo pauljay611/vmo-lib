@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { User } from '../types';
 
-interface LeaderboardDataList {
+export interface LeaderboardDataList {
   data: User[];
   bonus: User[];
   blackList: User[];

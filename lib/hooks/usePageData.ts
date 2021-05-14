@@ -1,7 +1,5 @@
 import { now } from '@17media/dad';
 
-import useTypeApi, { APIType, EventoryParams } from '../services/api';
-
 import useMergeLeaderboardData from './useMergeLeaderboardData';
 
 import useCountdown, { TimeStatus } from './useCountdown';
@@ -11,14 +9,19 @@ import useAutoNext from './useAutoNext';
 import useMockLeaderboard from './useMockLeaderboard';
 import { User } from '../types';
 
-interface PageContext {
-  apiList: APIType[];
+export interface APIList {
+  data: User[];
+  bonus: User[];
+  blackList: User[];
+}
+
+export interface PageContext {
+  apiList: APIList;
   startDate: string;
   endDate: string;
   nextPage: number;
   endedText: string;
   isResultPage: boolean;
-  eventoryAPI: (params: EventoryParams)=> Promise<User[]>,
 }
 
 const usePageData = ({
@@ -28,16 +31,12 @@ const usePageData = ({
   nextPage,
   isResultPage,
   endedText,
-  eventoryAPI,
 }: PageContext) => {
-  const { loading, leaderboardData = [] } = useTypeApi(
-    apiList,
-    'GET',
-    1000,
-    eventoryAPI,
-    [],
-  );
-  const [data, bonus, blackList] = leaderboardData;
+  const {
+    data,
+    bonus,
+    blackList,
+  } = apiList;
 
   const mergedLeaderboardData = useMergeLeaderboardData({
     data,
@@ -58,7 +57,6 @@ const usePageData = ({
 
   return {
     leaderboard,
-    loading,
     text,
   };
 };

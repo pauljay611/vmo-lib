@@ -1,10 +1,10 @@
-interface ItemStyle {
+export interface ItemStyle {
     width: number;
     height: number;
     offsetX: number;
     offsetY: number;
 }
-interface TransitionStyle {
+export interface TransitionStyle {
     transition: string;
 }
 declare const useItemTransition: (itemStyle: ItemStyle, transition: TransitionStyle, rowItems: number, currentRank: number | number[]) => {
