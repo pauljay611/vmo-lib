@@ -1,12 +1,12 @@
 import { now } from '@17media/dad';
 
-import useMergeLeaderboardData from './useMergeLeaderboardData';
+import { useMergeLeaderboardData } from './useMergeLeaderboardData';
 
-import useCountdown, { TimeStatus } from './useCountdown';
+import { TimeStatus, useCountdown } from './useCountdown';
 
-import useAutoNext from './useAutoNext';
+import { useAutoNext } from './useAutoNext';
 
-import useMockLeaderboard from './useMockLeaderboard';
+import { useMockLeaderboard } from './useMockLeaderboard';
 import { User } from '../types';
 
 export interface APIList {
@@ -24,7 +24,7 @@ export interface PageContext {
   isResultPage: boolean;
 }
 
-const usePageData = ({
+export const usePageData = ({
   apiList,
   startDate,
   endDate,
