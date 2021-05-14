@@ -17,8 +17,5 @@ const hooks_1 = __importDefault(require("./hooks"));
 const components_1 = __importDefault(require("./components"));
 __exportStar(require("./hooks"), exports);
 __exportStar(require("./components"), exports);
-exports.default = {
-    hooks: hooks_1.default,
-    components: components_1.default,
-};
+exports.default = Object.assign(Object.assign({}, hooks_1.default), components_1.default);
 //# sourceMappingURL=index.js.map

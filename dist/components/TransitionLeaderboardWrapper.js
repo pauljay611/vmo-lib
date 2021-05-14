@@ -3,7 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TransitionLeaderboardWrapper = void 0;
 const react_1 = __importDefault(require("react"));
 const styled_components_1 = __importDefault(require("styled-components"));
 const useItemTransition_1 = __importDefault(require("../hooks/useItemTransition"));
@@ -27,6 +26,5 @@ const TransitionLeaderboardWrapper = ({ user, itemStyle, rowCount, children, }) 
     }
     return react_1.default.createElement(Wrapper, null, renderChild());
 };
-exports.TransitionLeaderboardWrapper = TransitionLeaderboardWrapper;
-exports.default = exports.TransitionLeaderboardWrapper;
+exports.default = TransitionLeaderboardWrapper;
 //# sourceMappingURL=TransitionLeaderboardWrapper.js.map

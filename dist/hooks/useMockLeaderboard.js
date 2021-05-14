@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useMockLeaderboard = void 0;
 const react_1 = require("react");
 const uuid_1 = require("uuid");
 const utils_1 = require("../utils");
@@ -77,6 +76,5 @@ const useMockLeaderboard = (stable = false, limit = 100) => {
     }, [enable, limit, stable]);
     return { leaderboard, enable };
 };
-exports.useMockLeaderboard = useMockLeaderboard;
-exports.default = exports.useMockLeaderboard;
+exports.default = useMockLeaderboard;
 //# sourceMappingURL=useMockLeaderboard.js.map

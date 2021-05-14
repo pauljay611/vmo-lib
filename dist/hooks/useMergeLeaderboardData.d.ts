@@ -4,7 +4,7 @@ export interface LeaderboardDataList {
     bonus: User[];
     blackList: User[];
 }
-export declare const useMergeLeaderboardData: ({ data, bonus, blackList, }: LeaderboardDataList) => {
+declare const useMergeLeaderboardData: ({ data, bonus, blackList, }: LeaderboardDataList) => {
     bonus: number;
     meta: Record<string, number>;
     rank: number;
