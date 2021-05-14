@@ -1,12 +1,12 @@
 import { now } from '@17media/dad';
 
-import { useMergeLeaderboardData } from './useMergeLeaderboardData';
+import useMergeLeaderboardData from './useMergeLeaderboardData';
 
-import { TimeStatus, useCountdown } from './useCountdown';
+import useCountdown, { TimeStatus } from './useCountdown';
 
-import { useAutoNext } from './useAutoNext';
+import useAutoNext from './useAutoNext';
 
-import { useMockLeaderboard } from './useMockLeaderboard';
+import useMockLeaderboard from './useMockLeaderboard';
 import { User } from '../types';
 
 export interface APIList {

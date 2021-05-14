@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Router from 'next/router';
 import { qs } from '../utils';
 
-export const useAutoNext = (isEnded: boolean, page: number) => {
+const useAutoNext = (isEnded: boolean, page: number) => {
   useEffect(() => {
     if (isEnded) {
       const search = qs();

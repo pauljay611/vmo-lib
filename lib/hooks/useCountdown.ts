@@ -44,7 +44,7 @@ function getCurrentStatus(time: number, start: number, end: number) {
   return TimeStatus.Ongoing;
 }
 
-export const useCountdown = (start: number, end: number, timeEndText: string) => {
+const useCountdown = (start: number, end: number, timeEndText: string) => {
   const timer = useRef(0);
   const [currentTime, setCurrentTime] = useState(now() * 1000);
 

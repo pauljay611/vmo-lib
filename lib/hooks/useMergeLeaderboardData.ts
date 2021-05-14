@@ -7,7 +7,7 @@ export interface LeaderboardDataList {
   blackList: User[];
 }
 
-export const useMergeLeaderboardData = ({
+const useMergeLeaderboardData = ({
   data = [],
   bonus = [],
   blackList = [],

@@ -5,6 +5,6 @@ export * from './hooks';
 export * from './components';
 
 export default {
-  hooks,
-  components,
+  ...hooks,
+  ...components,
 };
