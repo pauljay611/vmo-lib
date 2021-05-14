@@ -12,7 +12,7 @@ export interface PageContext {
     endedText: string;
     isResultPage: boolean;
 }
-declare const usePageData: ({ apiList, startDate, endDate, nextPage, isResultPage, endedText, }: PageContext) => {
+export declare const usePageData: ({ apiList, startDate, endDate, nextPage, isResultPage, endedText, }: PageContext) => {
     leaderboard: User[];
     text: string;
 };

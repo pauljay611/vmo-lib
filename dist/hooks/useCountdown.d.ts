@@ -10,7 +10,7 @@ export interface TimeCount {
     s: number;
     ms: number;
 }
-declare const useCountdown: (start: number, end: number, timeEndText: string) => {
+export declare const useCountdown: (start: number, end: number, timeEndText: string) => {
     status: TimeStatus;
     text: string;
 };

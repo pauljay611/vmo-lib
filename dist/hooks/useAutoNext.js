@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.useAutoNext = void 0;
 const react_1 = require("react");
 const router_1 = __importDefault(require("next/router"));
 const utils_1 = require("../utils");
@@ -18,5 +19,6 @@ const useAutoNext = (isEnded, page) => {
         }
     }, [isEnded, page]);
 };
-exports.default = useAutoNext;
+exports.useAutoNext = useAutoNext;
+exports.default = exports.useAutoNext;
 //# sourceMappingURL=useAutoNext.js.map

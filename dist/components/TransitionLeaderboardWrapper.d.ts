@@ -6,5 +6,5 @@ export interface Props {
     rowCount: number;
     itemStyle: ItemStyle;
 }
-declare const TransitionLeaderboardWrapper: React.FC<Props>;
+export declare const TransitionLeaderboardWrapper: React.FC<Props>;
 export default TransitionLeaderboardWrapper;
