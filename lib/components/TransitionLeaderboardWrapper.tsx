@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import useItemTransition, { ItemStyle } from '../hooks/useItemTransition';
-import { User } from '../types';
+import React from "react";
+import styled from "styled-components";
+import useItemTransition, { ItemStyle } from "../hooks/useItemTransition";
+import { User } from "../types";
 
 export interface Props {
   user: User[];
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 `;
 
 const transitionStyle = {
-  transition: 'all 0.5s ease 0.3s',
+  transition: "all 0.5s ease 0.3s",
 };
 
 export const TransitionLeaderboardWrapper: React.FC<Props> = ({
@@ -29,12 +29,14 @@ export const TransitionLeaderboardWrapper: React.FC<Props> = ({
     itemStyle,
     transitionStyle,
     rowCount,
-    user.map((u) => u.rank),
+    user.map((u) => u.rank)
   );
 
   function renderChild() {
     return React.Children.map(children, (child, index) => {
-      if (!React.isValidElement(child) || !Array.isArray(itemTransitionStyle)) { throw new Error('Invalid child element'); }
+      if (!React.isValidElement(child) || !Array.isArray(itemTransitionStyle)) {
+        throw new Error("Invalid child element");
+      }
       return React.cloneElement(child, {
         style: itemTransitionStyle[index],
         key: user[index].userInfo.userID,

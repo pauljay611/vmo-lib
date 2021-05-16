@@ -13,12 +13,10 @@ const useItemTransition = (
   itemStyle: ItemStyle,
   transition: TransitionStyle,
   rowItems: number,
-  currentRank: number | number[],
+  currentRank: number | number[]
 ) => {
-  const {
-    width, height, offsetX, offsetY,
-  } = itemStyle;
-  if (typeof currentRank === 'number') {
+  const { width, height, offsetX, offsetY } = itemStyle;
+  if (typeof currentRank === "number") {
     const itemTransitionStyle = {
       left: ((currentRank - 1) % rowItems) * (width + offsetX),
       top: Math.floor((currentRank - 1) / rowItems) * (height + offsetY),
@@ -33,6 +31,7 @@ const useItemTransition = (
     itemTransitionStyle: currentRank.map((rank) => ({
       left: ((rank - 1) % rowItems) * (width + offsetX),
       top: Math.floor((rank - 1) / rowItems) * (height + offsetY),
+      position: "absolute",
       ...transition,
     })),
   };

@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import Router from 'next/router';
-import { qs } from '../utils';
+import { useEffect } from "react";
+import Router from "next/router";
+import { qs } from "../utils";
 
 const useAutoNext = (isEnded: boolean, page: number) => {
   useEffect(() => {

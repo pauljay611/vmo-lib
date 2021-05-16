@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { User } from '../types';
-import { qs } from '../utils';
+import { useState, useEffect, useRef } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { User } from "../types";
+import { qs } from "../utils";
 
 const defaultUser = {
   bonus: 0,
@@ -9,24 +9,20 @@ const defaultUser = {
   rank: 0,
   score: 0,
   userInfo: {
-    displayName: '',
+    displayName: "",
     gloryroadMode: 0,
     level: 0,
-    name: '',
-    openID: '',
-    picture: '36a80c61-89d9-40b5-803d-5b0437f293c4.jpg',
-    region: 'TW',
-    userID: '',
+    name: "",
+    openID: "",
+    picture: "36a80c61-89d9-40b5-803d-5b0437f293c4.jpg",
+    region: "TW",
+    userID: "",
   },
 };
 
 const usersID = new Array(100).fill(0).map(() => uuidv4());
 
-const createDefaultUser = (
-  id: string,
-  index: number,
-  score: number = 1000,
-) => ({
+const createDefaultUser = (id: string, index: number, score = 1000) => ({
   ...defaultUser,
   score,
   rank: index + 1,
@@ -35,16 +31,18 @@ const createDefaultUser = (
     displayName: `user${index}`,
     name: `user${index}`,
     openID: `user${index}`,
-    picture: '',
+    picture: "",
     userID: id,
   },
 });
 
-const mockUsers = usersID.map<User>((user, index) => createDefaultUser(user, index));
+const mockUsers = usersID.map<User>((user, index) =>
+  createDefaultUser(user, index)
+);
 
 const createMockGiftedUsers = (
   count: number,
-  limit: number,
+  limit: number
 ): { userID: string; score: number }[] => {
   const giftedUsers = new Array(count).fill(0).map(() => {
     const randomUserIndex = Math.floor(limit * Math.random());
@@ -62,11 +60,11 @@ const replaceLeaderboard = (curLeaderboard: User[], limit: number) => {
   const nextLeaderboard = [...curLeaderboard];
   mockGiftedUsers.forEach((user) => {
     const curUser = nextLeaderboard.find(
-      (u) => u.userInfo.userID === user.userID,
+      (u) => u.userInfo.userID === user.userID
     );
     if (!curUser) {
       nextLeaderboard.push(
-        createDefaultUser(user.userID, nextLeaderboard.length, user.score),
+        createDefaultUser(user.userID, nextLeaderboard.length, user.score)
       );
     } else {
       curUser.score += user.score;
@@ -77,12 +75,9 @@ const replaceLeaderboard = (curLeaderboard: User[], limit: number) => {
     .map((user, index) => ({ ...user, rank: index + 1 }));
 };
 
-const useMockLeaderboard = (
-  stable: boolean = false,
-  limit: number = 100,
-) => {
+const useMockLeaderboard = (stable = false, limit = 100) => {
   const [leaderboard, setLeaderboard] = useState<User[]>([]);
-  const [enable, setEnable] = useState('');
+  const [enable, setEnable] = useState("");
   const timer = useRef(0);
   const { test, initMockList } = qs<{ test: string; initMockList: string }>();
 
