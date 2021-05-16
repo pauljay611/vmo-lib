@@ -1,4 +1,4 @@
-# 負責 vmo front-end 邏輯與測試
+# A library for template and function for customized event frontend
 
 ## lib
 
@@ -9,3 +9,12 @@
 
 - offline
 - online
+
+## playground
+
+`yarn start`
+
+## test
+
+- react-hooks-testing-library
+`yarn test`
