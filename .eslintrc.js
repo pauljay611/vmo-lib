@@ -16,7 +16,6 @@ module.exports = {
     'no-param-reassign': 0,
     'import/extensions': ['error', 'ignorePackages', {
       js: 'never',
-      mjs: 'never',
       jsx: 'never',
       ts: 'never',
       tsx: 'never',
@@ -28,6 +27,7 @@ module.exports = {
     'react/prop-types': 0,
     '@typescript-eslint/no-use-before-define': 'off',
     'react/jsx-filename-extension': 0,
+    'no-console': 0,
   },
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
