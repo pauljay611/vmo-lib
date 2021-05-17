@@ -5,6 +5,7 @@ import useCountdown, { TimeStatus } from "./useCountdown";
 import useAutoNext from "./useAutoNext";
 
 import useMockLeaderboard from "./useMockLeaderboard";
+import { qs } from "../utils";
 
 export interface PageContext {
   startDate: string;
@@ -12,6 +13,8 @@ export interface PageContext {
   nextPage: number;
   endedText: string;
   isResultPage: boolean;
+  test: boolean;
+  init: boolean;
 }
 
 const usePageData = ({
@@ -20,20 +23,24 @@ const usePageData = ({
   nextPage,
   isResultPage,
   endedText,
+  test,
+  init,
 }: PageContext) => {
   const start = new Date(startDate).getTime();
   const end = new Date(endDate).getTime();
   const { status, text: countdownText } = useCountdown(start, end, endedText);
-  const isEnded = status === TimeStatus.Ended && now() < end + 5000;
 
+  const isEnded = status === TimeStatus.Ended && now() < end + 5000;
   useAutoNext(isEnded, nextPage);
 
-  const { enable, leaderboard: mockLeaderboard } =
-    useMockLeaderboard(isResultPage);
+  const { leaderboard: mockLeaderboard } = useMockLeaderboard(
+    test,
+    init,
+    isResultPage
+  );
 
   return {
     mockLeaderboard,
-    test: enable,
     countdownText,
     status,
   };

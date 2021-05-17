@@ -1,19 +1,21 @@
-import { useEffect } from "react";
-import Router from "next/router";
-import { qs } from "../utils";
+import { useEffect, useRef } from "react";
+import { qs, globalThis } from "../utils";
 
 const useAutoNext = (isEnded: boolean, page: number) => {
   useEffect(() => {
     if (isEnded) {
       const search = qs();
-      window.scrollTo(0, 0);
-      Router.push({
-        pathname: window.location.pathname,
-        query: {
-          ...search,
-          page,
-        },
-      });
+      const query = {
+        ...search,
+        page,
+      };
+      const queryPath = Object.entries(query).map(
+        ([key, value]) => `${key}=${value}`
+      );
+      const nextLocation = `${globalThis.location.pathname}?${queryPath.join(
+        "&"
+      )}`;
+      globalThis.location.href = nextLocation;
     }
   }, [isEnded, page]);
 };

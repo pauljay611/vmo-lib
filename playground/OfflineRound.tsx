@@ -3,6 +3,9 @@ import styled from "styled-components";
 import usePageData from "../lib/hooks/usePageData";
 import { TransitionLeaderboardWrapper } from "../lib/components/TransitionLeaderboardWrapper";
 import { ItemStyle } from "../lib/hooks/useItemTransition";
+import { qs } from "../lib/utils";
+
+const { test, initMockList } = qs<{ test: string; initMockList: string }>();
 
 const round1 = {
   startDate: "2021-05-01T18:55:00+08:00",
@@ -10,6 +13,8 @@ const round1 = {
   nextPage: 2,
   isResultPage: false,
   endedText: "活動結束",
+  test: !!test,
+  init: !!initMockList,
 };
 
 const rowCount = 4;

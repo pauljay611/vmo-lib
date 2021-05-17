@@ -20,12 +20,12 @@ const day = 1000 * 60 * 60 * 24;
 const h = 1000 * 60 * 60;
 const m = 1000 * 60;
 
-const formatCountdownText = (times: TimeCount) =>
+export const formatCountdownText = (times: TimeCount) =>
   `${addLeadingZeros(times.d * 24 + times.h)}:${addLeadingZeros(
     times.m
   )}:${addLeadingZeros(times.s)}`;
 
-const getRelatedDistance = (dist: number): TimeCount => ({
+export const getRelatedDistance = (dist: number): TimeCount => ({
   d: Math.max(0, Math.floor(dist / day)),
   h: Math.max(0, Math.floor(dist / h) % 24),
   m: Math.max(0, Math.floor(dist / m) % 60),

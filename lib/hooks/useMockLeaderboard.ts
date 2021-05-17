@@ -75,18 +75,20 @@ const replaceLeaderboard = (curLeaderboard: User[], limit: number) => {
     .map((user, index) => ({ ...user, rank: index + 1 }));
 };
 
-const useMockLeaderboard = (stable = false, limit = 100) => {
+const useMockLeaderboard = (
+  enable = false,
+  initMockList = false,
+  stable = false,
+  limit = 100
+) => {
   const [leaderboard, setLeaderboard] = useState<User[]>([]);
-  const [enable, setEnable] = useState("");
   const timer = useRef(0);
-  const { test, initMockList } = qs<{ test: string; initMockList: string }>();
 
   useEffect(() => {
     if (initMockList) {
       setLeaderboard(mockUsers);
     }
-    if (test) setEnable(test);
-  }, [test, initMockList]);
+  }, [initMockList]);
 
   useEffect(() => {
     if (enable && stable) {
@@ -100,9 +102,9 @@ const useMockLeaderboard = (stable = false, limit = 100) => {
     return () => {
       clearInterval(timer.current);
     };
-  }, [enable, limit, stable]);
+  }, [limit, stable]);
 
-  return { leaderboard, enable } as const;
+  return { leaderboard } as const;
 };
 
 export default useMockLeaderboard;
