@@ -1,6 +1,6 @@
 import useItemTransition from "../useItemTransition";
 
-describe("test transition style", () => {
+describe("test transition style hook", () => {
   test("should return correct top and left position", () => {
     const rowCount = 4;
 

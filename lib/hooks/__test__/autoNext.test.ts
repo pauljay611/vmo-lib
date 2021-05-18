@@ -2,7 +2,7 @@ import { renderHook } from "@testing-library/react-hooks";
 import useAutoNext from "../useAutoNext";
 import { globalThis } from "../../utils";
 
-describe("test auto change page while the stage is end", () => {
+describe("test auto change page hook", () => {
   // workaround with https://wildwolf.name/jest-how-to-mock-window-location-href/
 
   const { location } = globalThis;

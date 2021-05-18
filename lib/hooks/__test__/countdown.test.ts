@@ -6,7 +6,7 @@ import useCountdown, {
   TimeStatus,
 } from "../useCountdown";
 
-describe("test stage countdown", () => {
+describe("test stage countdown hook", () => {
   test("should return rest of the end time and not yet status", () => {
     const start = new Date("2026-05-01T18:55:00+08:00").getTime();
     const end = new Date("2026-06-01T18:55:00+08:00").getTime();

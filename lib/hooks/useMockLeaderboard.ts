@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { User } from "../types";
-import { qs } from "../utils";
 
 const defaultUser = {
   bonus: 0,
@@ -20,7 +19,7 @@ const defaultUser = {
   },
 };
 
-const usersID = new Array(100).fill(0).map(() => uuidv4());
+export const usersID = new Array(100).fill(0).map(() => uuidv4());
 
 const createDefaultUser = (id: string, index: number, score = 1000) => ({
   ...defaultUser,
@@ -36,7 +35,7 @@ const createDefaultUser = (id: string, index: number, score = 1000) => ({
   },
 });
 
-const mockUsers = usersID.map<User>((user, index) =>
+export const mockUsers = usersID.map<User>((user, index) =>
   createDefaultUser(user, index)
 );
 
